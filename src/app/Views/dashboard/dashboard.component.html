@@ -1,0 +1,50 @@
+<mat-sidenav-container class="sidenav-container" >
+      <mat-sidenav #drawer class="sidenav"  fixedInViewport 
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false" >
+    <mat-toolbar class="imgCont" ><img src="./assets/lg3.jpeg" class="img"></mat-toolbar>
+
+    <mat-nav-list >
+      <a mat-list-item routerLink="/" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"><mat-icon>home</mat-icon>&nbsp;HOME</a>
+      <a mat-list-item routerLink="/users"[routerLinkActive]="['active']"><mat-icon>supervisor_account</mat-icon>&nbsp;ADMIN</a>
+      <a mat-list-item routerLink="/category"[routerLinkActive]="['active']"><mat-icon>work</mat-icon>&nbsp;CATEGORIES</a>
+      <a mat-list-item routerLink="/product"[routerLinkActive]="['active']"><mat-icon>local_grocery_store</mat-icon>&nbsp; PRODUCTS</a>
+      <a mat-list-item routerLink="/store"[routerLinkActive]="['active']"><mat-icon>store_mall_directory</mat-icon>&nbsp; STORE</a>
+      <a mat-list-item routerLink="/pos"[routerLinkActive]="['active']"><mat-icon>monetization_on</mat-icon>&nbsp;POS</a>
+      <a mat-list-item routerLink="#"[routerLinkActive]="['active']"><mat-icon>account_circle</mat-icon>&nbsp;MY ACCOUNT</a>
+      <a mat-list-item routerLink="#"[routerLinkActive]="['active']"><mat-icon>logout</mat-icon>&nbsp;LOGOUT</a>
+    </mat-nav-list>
+    
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="sideUp" >
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="head-count" >
+         <span class="head-white" class="hidden-print" ><h1 style="letter-spacing: 15px; text-shadow: 5px 5px 15px rgb(252, 8, 8);">{{companyName|uppercase}}</h1></span>
+        <div class="user-email">
+          <span class="email-center" class="hidden-print">mrdavidjoseph60@gmail.com</span>
+        </div>
+      </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+   <div class ="main-content">
+    <!--<div class="hidden-print">
+      <div class="home" (click)="createUser()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+        <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+      </svg>|Home</div>
+    </div>-->
+    <div class="router-outlet">
+      <router-outlet></router-outlet>
+    </div>
+   </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

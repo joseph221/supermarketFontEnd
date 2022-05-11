@@ -1,0 +1,39 @@
+<div>
+    <!--product code div-->
+    <div >
+        <div class="col">
+            <mat-form-field class="w-100 example-full-width" appearance="fill">
+                <mat-label>Product Code</mat-label>
+                <input [(ngModel)]="pcode" (change)="getCode()"  matInput autocomplete="off"  placeholder="65667767889" type="text">
+            </mat-form-field>
+        </div>
+    </div>
+     <!--price div-->
+     <div>
+        <div class="col">
+            <mat-form-field class="w-100 example-full-width" appearance="fill">
+                <mat-label>PRICE</mat-label>
+                <input  matInput autocomplete="off" [readonly]="true" [value]="price">
+            </mat-form-field>
+        </div>
+    </div>
+    <!--quantity div-->
+    <div>
+       <div class="col">
+            <mat-form-field class="w-100 example-full-width" appearance="fill">
+                <mat-label>QTY</mat-label>
+                <input [(ngModel)]="pqty" name="qty" matInput autocomplete="off"  placeholder="300">
+            </mat-form-field>
+        </div>
+    </div>
+    <!-- min quantity div-->
+    <div *ngIf="control">
+        <div class="col">
+             <mat-form-field class="w-100 example-full-width" appearance="fill">
+                 <mat-label>MINIMUM QTY</mat-label>
+                 <input [(ngModel)]="min" name="min" matInput autocomplete="off"  placeholder="300">
+             </mat-form-field>
+         </div>
+     </div>
+</div>
+<button mat-raised-button (click)="save()">save</button>

@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/*@media print {
+    app-root > * { display: none; }
+    app-root app-print-layout { display: block; }
+  }*/
+  @media print {
+    .hidden-print,
+    .hidden-print * {
+        display: none !important;
+    }
+
+    .sidenav,
+    .sidenav * {
+        display: none !important;
+    }
+
+    body{
+        background-color: #f3f5f9;
+    }
+}
+
+.colo{
+    background-color: green;
+}
+.colo2{
+    background-color: cornflowerblue;
+}

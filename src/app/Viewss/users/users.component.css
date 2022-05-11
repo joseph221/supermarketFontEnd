@@ -1,0 +1,15 @@
+
+.count{
+    margin: 0%;
+    display: flex;
+}
+.count2{
+    margin-left: auto;
+}
+
+.count2 .buttons{
+    margin-left: 20px;
+}
+.conf{
+    box-shadow: 5px 5px 10px #888888;
+}

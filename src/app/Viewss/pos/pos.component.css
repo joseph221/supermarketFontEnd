@@ -1,0 +1,83 @@
+div{
+    padding: 10px;
+}
+.container{
+    display: flex;
+   border: none;
+   border-top: none;
+    
+}
+
+.receipt {
+    border-top: 1px dotted;
+    border-collapse: collapse;
+}
+
+td.description,
+th.description {
+    width: auto;
+    max-width: 250px;
+}
+
+td.quantity,
+th.quantity {
+    width: 40px;
+    max-width: 40px;
+    word-break: break-all;
+}
+
+td.price,
+th.price {
+    width: 55px;
+    max-width: 100px;
+    word-break: break-all;
+}
+
+.centered {
+    text-align: center;
+    align-content: center;
+}
+
+#ticket {
+    background-color:white;
+    font-size: 12px;
+    font-family: 'Times New Roman';
+    width: 230px;
+    max-width: 300px;
+}
+
+.img1 {
+    max-width: 65px;
+    max-height: 65px;
+    border-radius: 30px;
+    margin-left: auto;
+}
+.left-side{
+    display: flex;
+    position: relative;
+    margin: auto;
+    
+    
+}
+.card-img-top{
+    max-width: 215px;
+    max-height: 215px;
+}
+.img2{
+    max-width: 65px;
+    max-height: 65px; 
+    margin-left: 75px;
+}
+.tryLeft{
+    position: relative;
+    left: 35%;
+}
+#hidden-td{
+    color: red;
+}
+.ticket:hover + .delete {
+    display: block;
+    color: blue;
+    width: 250px;
+    max-width: 500px;
+}

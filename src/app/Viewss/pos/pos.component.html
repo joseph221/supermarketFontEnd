@@ -1,0 +1,107 @@
+
+<div class="container" >
+    <div><!--product code div-->
+        <div >
+            <mat-card class="hidden-print">
+                <div class="col">
+                    <mat-form-field class="w-100 example-full-width" appearance="fill">
+                        <mat-label>Product Code</mat-label>
+                        <input [(ngModel)]="pcode" (change)="fetch()" matInput autocomplete="off"  placeholder="65667767889" type="text">
+                        </mat-form-field>
+                </div>
+            </mat-card>
+        </div>
+        <!--quantity div-->
+        <div>
+            <mat-card class="hidden-print">
+                <div class="col">
+                    <mat-form-field class="w-100 example-full-width" appearance="fill">
+                        <mat-label>QTY</mat-label>
+                        <input [(ngModel)]="pqty" name="qty" (change)="fetchqty()" matInput autocomplete="off"  placeholder="23">
+                    </mat-form-field>
+                </div>
+            </mat-card>
+        </div>
+        <!--price div-->
+        <div>
+            <mat-card class="hidden-print">
+                <div>
+                    Price:
+                    <span>{{price}}</span>
+                </div>
+            </mat-card>
+        </div>
+        <!--total div-->
+        <div>
+            <mat-card class="hidden-print">
+                <div>
+                    Total
+                    <span>{{total1}}</span>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+    <div class="left-side">
+        <!--receipt div--> 
+        <div>
+            <div id="ticket">
+                <p class="centered"> SALES RECEIPT
+                <p class="centered"> SUPERMAKET NAME
+                    <br>Address line 1
+                    <br>Receipt No:{{receiptNo}}
+                    <br>Cashier Name:Joseph</p>
+                <table class="receipt">
+                    <thead class="receipt">
+                        <tr class="receipt"> 
+                            <th class="description">Description</th>
+                            <th class="quantity">Q.</th>
+                            <th class="price">$$</th>
+                            <th class="price">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="receipt" *ngFor="let details of purchasedProduct">
+                            <td class="description">{{ details.itemName}}</td>
+                            <td class="quantity">{{ details.qty}}</td>
+                            <td class="price">{{ details.price}}</td>
+                            <td class="price">{{ details.qty*details.price}}</td>
+                            <td id="hidden-td" class="hidden-print"><mat-icon id="hidden-td" (click)="removePro(details.producode)">cancel</mat-icon></td>
+                        </tr>
+                        <tr>
+                            <td class="description"></td>
+                            <td class="quantity"></td>
+                            <td class="price">TOTAL</td>
+                            <td class="price">{{total}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="centered">Thanks for your purchase!</p>
+                <img class="img2" src="./assets/qrcode.png" alt="Logo">
+            </div>
+        </div>
+        
+        <div class="tryLeft">
+            <!--image div-->
+            <div class="card" style="width: 215px;">
+                <div class="hidden-print">
+                    <img class="card-img-top" [src]="convertedImage" alt="Card image">
+                <div class="card-body">
+                    name
+                </div>
+            </div>
+            </div>
+             <!--submit div-->
+             <div style="width: 215px;">
+                <mat-card class="hidden-print">
+                    <button id="btnPrint2" class="hidden-print"(click)=" save()">SAVE RECEIPT</button>
+                </mat-card>
+            </div>
+            <!--print button div div-->
+            <div>
+                <mat-card class="hidden-print">
+                    <button id="btnPrint" class="hidden-print">Print</button>
+                </mat-card>
+            </div>
+           
+    </div>
+</div>

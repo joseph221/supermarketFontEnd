@@ -1,0 +1,18 @@
+<div class="conta">
+    <div class="form">
+        <form [formGroup] = "categoryForm" autocomplete="off">
+            <div class="row">
+                <div class="col-md-8">
+                    <mat-form-field class="w-100 example-full-width" appearance="fill">
+                        <mat-label>category Name</mat-label>
+                        <input matInput formControlName="categoryName" placeholder="category name">
+                    </mat-form-field>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="app-card-actions">
+        <button mat-fab [disabled]="categoryForm.invalid" (click)="onSave()">save</button>
+    </div>
+</div>
+

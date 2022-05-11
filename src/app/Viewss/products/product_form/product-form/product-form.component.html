@@ -1,0 +1,69 @@
+<form [formGroup] = "prodForm" autocomplete="off">
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100 example-full-width" appearance="fill">
+                <mat-label>Product Barcode</mat-label>
+                <input matInput formControlName="producode" placeholder="62358991278">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field class="w-100 example-full-width" appearance="fill">
+                <mat-label>Item Name</mat-label>
+                <input matInput formControlName="itemName" placeholder="" type="text">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100 example-full-width" appearance="fill">
+                <mat-label>Brand</mat-label>
+                <input matInput formControlName="brand" placeholder="brand name">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field class="w-100 example-full-width" appearance="fill">
+                <mat-label>Type</mat-label>
+                <input matInput formControlName="type" placeholder="" type="text">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100 example-full-width" appearance="fill">
+                <mat-label>Product Cost</mat-label>
+                <input matInput formControlName="cost" placeholder="" type="number">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field class="w-100 example-full-width" appearance="fill">
+                <mat-label>Product Price</mat-label>
+                <input matInput formControlName="price" placeholder="" type="number">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100 example-full-width" appearance="fill">
+                <mat-label>Unit of Measurement</mat-label>
+                <input matInput formControlName="uom" placeholder="" type="text">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field class="w-100 example-full-width" appearance="fill">
+                <mat-label>Category Name</mat-label>
+                <mat-select formControlName="cat_id">
+                  <mat-option *ngFor="let cat of category" [value]="cat.id">{{cat.categoryName}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <div class="form-group">
+            <label>Product Image</label>
+            <p><input formControlName="imgBytes" id="file"type="file" class="form-control-file" (change)="onFileChanged($event)"></p>
+            
+            <div class="img">
+                <img [src]="imgURL" height="200" *ngIf="imgURL">
+            </div>
+        </div>
+    </div>
+</form>
+<button mat-raised-button [disabled]="prodForm.invalid" (click)="onSave()">save</button>

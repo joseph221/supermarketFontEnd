@@ -1,0 +1,27 @@
+<main>
+    <section class="banners">
+      <div *ngFor="let banner of banners">
+        <div class="card" [class]="banner.title">
+          <span><h1>{{banner.title}}</h1></span>
+          <span class="curency">{{banner.numb}}</span>
+        </div>
+      </div>
+    </section> &nbsp;
+    <app-card>
+      <section class="product-area">
+        <!-- product list component will come here -->
+        <div class="chart-wrapper">
+          <canvas baseChart 
+              [datasets]="lineChartData" 
+              [labels]="lineChartLabels" 
+              [options]="lineChartOptions"
+              [colors]="lineChartColors" 
+              [legend]="lineChartLegend" 
+              [chartType]="lineChartType" 
+              [plugins]="lineChartPlugins">
+          </canvas>
+      </div>
+      </section>
+    </app-card>
+   
+</main>

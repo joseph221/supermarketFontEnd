@@ -1,0 +1,138 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  margin: 0%;
+  border:0px;
+ 
+  background-color: rgb(38, 17, 66); 
+  color: white;
+  
+}
+
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.main-content{
+  padding: 15px;
+  background-color: rgb(231, 225, 225);
+ 
+}
+
+.img{
+  max-width: 65px;
+  max-height: 65px;
+  border-radius: 30px;
+  margin-left: 45px;
+}
+.sideUp{
+  background-color: #331b7c;
+}
+.imgCont{
+  background-color: rgb(38, 17, 66); 
+}
+.hidden-print{
+ 
+  color: antiquewhite;
+ 
+}
+.router-outlet{
+  padding-top: 5px;
+}
+.print{
+  margin-left: 1057px;
+}
+.user-email{
+  position: absolute;
+  left: 75%;
+  height: 30px;
+  width: fit-content;
+  
+  color: antiquewhite;
+  
+}
+.email-center{
+  margin-left: 5px;
+}
+div.home{
+ position: relative;
+ left: 90%;
+ height: 40px;
+ text-decoration: solid;
+ font-size: large;
+} 
+.head-count{
+  display: flex;
+}
+mat-nav-list{
+  align-items: center;
+  padding-left: 15px;
+}
+mat-nav-list a{
+  color: white;
+}
+
+mat-nav-list a:hover{
+  color: blue;
+}
+
+.mat-list-item{
+  margin: 0%;
+  padding: 15px;
+}
+
+.mat-list-item.active{
+  background-color: rgb(231, 225, 225);
+  color: #09c0d7;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.head-white {
+ height: 50px;	
+ overflow: hidden;
+}
+.head-count h1 {
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateX(-100%);
+ -webkit-transform:translateX(-100%);	
+ transform:translateX(-100%);
+ /* Apply animation to this element */	
+ -moz-animation: scroll-right 15s linear infinite;
+ -webkit-animation: scroll-right 15s linear infinite;
+ animation: scroll-right 15s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes scroll-right {
+ 0%   { -moz-transform: translateX(-100%); }
+ 100% { -moz-transform: translateX(100%); }
+}
+@-webkit-keyframes scroll-right {
+ 0%   { -webkit-transform: translateX(-100%); }
+ 100% { -webkit-transform: translateX(74%); }
+}
+@keyframes scroll-right {
+ 0%   { 
+ -moz-transform: translateX(-100%); /* Browser bug fix */
+ -webkit-transform: translateX(-100%); /* Browser bug fix */
+ transform: translateX(-100%); 		
+ }
+ 100% { 
+ -moz-transform: translateX(100%); /* Browser bug fix */
+ -webkit-transform: translateX(74%); /* Browser bug fix */
+ transform: translateX(74%); 
+ }
+}
+
+
+
