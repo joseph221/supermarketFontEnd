@@ -1,0 +1,63 @@
+<div class="center">
+    <div class="head">
+      <span><h1>{{cname|uppercase}}</h1></span>
+    </div>
+    <div class="imgCont"><img src="assets/lg3.jpeg" alt=""></div>
+    <div class="subhead">
+      <span><h2>Sales Report</h2></span>
+    </div>
+   
+    <table style="width: 100%; margin-left: 15px;">
+      <tr>
+        <td style="width: 20%;">City:</td><td style="width: calc(100% - 50%);">Zanzibar</td>
+        <td>Date:</td><td>{{date}}</td>
+      </tr>
+      <tr>
+        <td>Street Address:</td><td >Chwaka</td>
+        <td><span style="margin-left: 15px;">From:</span></td>
+        <td>{{from}}</td>
+      </tr>
+      <tr>
+        <td>Phone Number:</td><td >0717693450</td>
+        <td><span style="margin-left: 15px;">To:</span></td>
+        <td>{{to}}</td>
+      </tr>
+    </table>
+    <div class="content">
+             
+      <table class="table table-striped" style="margin-top: 40px;">
+          <thead>
+            <tr>
+                <th scope="col">SN</th>
+                <th scope="col">BARCODE</th>
+                <th scope="col">PRICE</th>
+                <th scope="col">QUANITITY</th>
+                <th scope="col">AMOUNT</th>
+                <th scope="col">RECIEPT NO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sale of data,let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{sale.producode}}</td>
+                <td>{{sale.price}}</td>
+                <td>{{sale.qty}}</td>
+                <td>{{sale.amount}}</td>
+                <td>{{sale.receiptNo}}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+    
+    </div>
+   
+  </div>
+  
+  <div class="down">
+    <table style="width: 100%; margin-left: 15px;">
+      <tr>
+        <td style="width: 10%;">Signed By:</td><td style="width: 40%;"><hr></td>
+        <td>Submited By:</td><td><hr></td>
+      </tr>
+    </table>
+  </div>

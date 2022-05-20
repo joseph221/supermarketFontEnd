@@ -44,6 +44,8 @@ import { SalesComponent } from './Viewss/sales/sales/sales.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ProPrintLatoutComponent } from './Viewss/products/productPrint/pro-print-latout/pro-print-latout.component';
+import { StoreprintlayoutComponent } from './Viewss/store/print/storeprintlayout/storeprintlayout.component';
+import { SalesPrintLayoutComponent } from './Viewss/sales/sales-print-layout/sales-print-layout.component';
 
 
 @NgModule({
@@ -69,6 +71,8 @@ import { ProPrintLatoutComponent } from './Viewss/products/productPrint/pro-prin
     StoreFormComponent,
     SalesComponent,
     ProPrintLatoutComponent,
+    StoreprintlayoutComponent,
+    SalesPrintLayoutComponent,
   
     
     

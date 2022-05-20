@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Store } from 'src/app/Viewss/store/Store';
 
@@ -7,9 +8,17 @@ import { Store } from 'src/app/Viewss/store/Store';
   providedIn: 'root'
 })
 export class StoreserviceService {
+  sendData:any[]
+  cname:string
+  constructor(private http:HttpClient,private router:Router) { }
 
-  constructor(private http:HttpClient) { }
-
+  onDataReady() {
+    this.router.navigateByUrl("store-print").then(()=>{
+      window.print();
+    this.router.navigateByUrl("store")
+ 
+    })
+  }
   getTotalStore(){
     return this.http.get("http://localhost:8080/store/amount")
   }

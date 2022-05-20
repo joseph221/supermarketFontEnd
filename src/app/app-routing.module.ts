@@ -7,7 +7,9 @@ import { PosComponent } from './Viewss/pos/pos.component';
 import { AddproductComponent } from './Viewss/products/Add_product/addproduct/addproduct.component';
 import { ProPrintLatoutComponent } from './Viewss/products/productPrint/pro-print-latout/pro-print-latout.component';
 import { ProductsComponent } from './Viewss/products/products.component';
+import { SalesPrintLayoutComponent } from './Viewss/sales/sales-print-layout/sales-print-layout.component';
 import { SalesComponent } from './Viewss/sales/sales/sales.component';
+import { StoreprintlayoutComponent } from './Viewss/store/print/storeprintlayout/storeprintlayout.component';
 import { StoreComponent } from './Viewss/store/store/store.component';
 import { UpdateComponent } from './Viewss/update/update.component';
 import { AddUserComponent } from './Viewss/users/add-user/add-user.component';
@@ -53,7 +55,9 @@ const routes: Routes = [
     
    ]
   },
-  {path:"print",component:ProPrintLatoutComponent}
+  {path:"product-print",component:ProPrintLatoutComponent},
+  {path:"store-print",component:StoreprintlayoutComponent},
+  {path:"sales-print",component:SalesPrintLayoutComponent}
 ];
 
 @NgModule({

@@ -8,6 +8,8 @@ import { Store } from '../Store';
 import { StoreserviceService } from 'src/app/services/store_service/storeservice.service';
 import { StoreFormComponent } from '../storeForm/store-form/store-form.component';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { config } from 'src/app/Views/config';
+import { AdminService } from 'src/app/services/Admin_service/admin.service';
 
 
 @Component({
@@ -21,6 +23,7 @@ export class StoreComponent implements OnInit {
   loading:Boolean
   store: Store[];   
   storeTableColumns: TableColumns[];
+  companySetings:config
 
   mode={
     crudeMode: "create",
@@ -30,6 +33,7 @@ export class StoreComponent implements OnInit {
   constructor(private storeService:StoreserviceService,
     private router: Router,
     private matDailog:MatDialog,
+    private company:AdminService
    ) { }
 
   ExportTOExcel() {  
@@ -44,6 +48,22 @@ export class StoreComponent implements OnInit {
     /* save to file */  
     XLSX.writeFile(wb, this.fileName);
   }
+
+  sender(){
+    this.storeService.sendData=this.store
+    this.storeService.cname = this.companySetings?.company_name
+    
+  }
+  getCompanySettings(){
+    this.company.getComponanyName().subscribe((res) =>{
+      this.companySetings = res
+    })
+  }
+
+  navigate(){
+    this.router.navigateByUrl("store-print")
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     this.getStore();
   }
@@ -55,6 +75,7 @@ export class StoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeColumns();
+    this.getCompanySettings()
     this.getStore();
   }
 

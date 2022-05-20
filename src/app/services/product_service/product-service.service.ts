@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
+import { config } from 'src/app/Views/config';
 import { product } from 'src/app/Viewss/products/product';
 
 @Injectable({
@@ -9,18 +10,16 @@ import { product } from 'src/app/Viewss/products/product';
 })
 export class ProductServiceService {
   sendData:any[]
-  isPrinting=false
-  constructor(private http:HttpClient,private router:Router) { }
-
-  onPrint(){
-    this.isPrinting = true
-    this.router.navigateByUrl("print")
+  cname:string
+  
+  
+  constructor(private http:HttpClient,private router:Router) { 
+    
   }
 
   onDataReady() {
-    this.router.navigateByUrl("print").then(()=>{
+    this.router.navigateByUrl("product-print").then(()=>{
       window.print();
-    this.isPrinting = false
     this.router.navigateByUrl("product")
  
     })

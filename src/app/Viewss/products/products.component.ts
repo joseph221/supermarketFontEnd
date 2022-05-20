@@ -11,6 +11,8 @@ import { AddproductComponent } from './Add_product/addproduct/addproduct.compone
 import { EditFormComponent } from './edit/edit-form/edit-form.component';
 import { CartegoryService } from 'src/app/services/category_service/cartegory.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AdminService } from 'src/app/services/Admin_service/admin.service';
+import { config } from 'src/app/Views/config';
 
 @Component({
   selector: 'app-products',
@@ -24,10 +26,12 @@ export class ProductsComponent implements OnInit {
   productTableColumns: TableColumns[];
   category:any[];
   categoryForm: FormGroup;
+  companySetings:config
 
   
   constructor(private productservice: ProductServiceService,
-    private router: Router,private matDailog:MatDialog,private categoryservice:CartegoryService) { }
+    private router: Router,private matDailog:MatDialog,private categoryservice:CartegoryService
+    ,private company:AdminService) { }
   ExportTOExcel() {  
     /* pass here the table id */
     let element = document.getElementById('excel-table');
@@ -61,6 +65,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.formConfiguration();
     this.initializeColumns();
+    this.getCompanySettings()
     this.getProduct();
     this.getCategory();
   }
@@ -78,11 +83,19 @@ export class ProductsComponent implements OnInit {
   }
   
   sender(){
-    this.productservice.sendData=this.product
+    this.productservice.sendData=this.product;
+    this.productservice.cname = this.companySetings?.company_name
+    
+    
+  }
+  getCompanySettings(){
+    this.company.getComponanyName().subscribe((res) =>{
+      this.companySetings = res
+    })
   }
 
   navigate(){
-    this.productservice.onPrint()
+    this.router.navigateByUrl("product-print")
   }
   removeItem(code:String) {
     this.productservice.delete(code) .subscribe(()=> {

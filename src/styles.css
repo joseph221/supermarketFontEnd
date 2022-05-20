@@ -40,3 +40,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 button{
     color: #f3f5f9;
 }
+.cat{
+    position: absolute;
+    right: 15px;
+    top: 5px; 
+}

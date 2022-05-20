@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit{
               {
                 title:
                 "Store",
-                src: this.totalStore
+                numb: this.totalStore
               },
               {
                 title:

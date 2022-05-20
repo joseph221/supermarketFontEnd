@@ -7,22 +7,23 @@ import { ProductServiceService } from 'src/app/services/product_service/product-
   templateUrl: './pro-print-latout.component.html',
   styleUrls: ['./pro-print-latout.component.css']
 })
-export class ProPrintLatoutComponent implements OnInit,OnChanges {
+export class ProPrintLatoutComponent implements OnInit{
   data:any
-  cname:string
-  constructor(private productservice:ProductServiceService,private company:AdminService) { }
-  ngOnChanges(changes: SimpleChanges): void {
-   
-  }
+  cname:any
+  date:any
+  constructor(private productservice:ProductServiceService) { }
+  
 
   ngOnInit(): void {
+    this.cname = this.productservice.cname
+    console.log("cname",this.cname)
     this.data = this.productservice.sendData
-    this.company.getComponanyName().subscribe((res:any) =>{
-      this.cname = res
-    })
+    var date1 = new Date()
+    this.date = date1.toLocaleDateString('en-CA')
     console.log(this.data)
     this.productservice.onDataReady();
   }
+  
 
  
 

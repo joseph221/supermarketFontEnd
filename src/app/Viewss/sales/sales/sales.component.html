@@ -7,7 +7,6 @@
       <mat-form-field class="w-100 example-full-width" appearance="outline">
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="firstDate">
-        <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker startView="year"></mat-datepicker>
       </mat-form-field>
@@ -17,41 +16,34 @@
       <mat-form-field class="w-100 example-full-width" appearance="outline">
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="picker2" formControlName="secondDate">
-        <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2 startView="year"></mat-datepicker>
       </mat-form-field>
     </div>
     <div class="col">
       <button style="margin-top: 15px;" class="colo" mat-raised-button (click)="fiter()">filter By Date</button>&nbsp;&nbsp;
-      <button style="margin-top: 15px;right: 0%;" mat-raised-button color="primary" >print</button>&nbsp;&nbsp;
       <button style="margin-top: 15px;background-color: rgb(121, 19, 19);color: whitesmoke;" mat-raised-button  (click)="getAllsales()">reload</button>
     </div>
   </div>
 </form>
 </app-card>&nbsp;
-<app-card>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">SN</th>
-        <th scope="col">BARCODE</th>
-        <th scope="col">PRICE</th>
-        <th scope="col">QUANITITY</th>
-        <th scope="col">AMOUNT</th>
-        <th scope="col">RECIEPT NO</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let sale of salesReport,let i = index">
-        <th scope="row">{{i+1}}</th>
-        <td>{{sale.producode}}</td>
-        <td>{{sale.price}}</td>
-        <td>{{sale.qty}}</td>
-        <td>{{sale.amount}}</td>
-        <td>{{sale.receiptNo}}</td>
-      </tr>
-      
-    </tbody>
-  </table>
+<app-card title="Sales">
+  <div class="cat">
+    <button mat-raised-button class="colo" type="button"  (click)="ExportTOExcel()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="currentColor" class="bi bi-file-earmark-excel-fill" viewBox="0 0 16 16">
+      <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM5.884 6.68 8 9.219l2.116-2.54a.5.5 0 1 1 .768.641L8.651 10l2.233 2.68a.5.5 0 0 1-.768.64L8 10.781l-2.116 2.54a.5.5 0 0 1-.768-.641L7.349 10 5.116 7.32a.5.5 0 1 1 .768-.64z"/>
+    </svg>
+    Export to Excel
+   </button>&nbsp;&nbsp;
+    <button style="margin-top: 15px;right: 0%;" mat-raised-button color="primary" (click)="[sender(),navigate()]">print</button>&nbsp;&nbsp;
+  </div>
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>&nbsp;
+      <app-table [tableData]="sales"
+      [tableColumns]="salesTableColumns"
+      [isPageable]="true"
+      [paginationSizes]="[2,4,6]"
+      [defaultPageSize]="4"
+      (sort)="sortData($event)"
+      >
+      </app-table>
 </app-card>

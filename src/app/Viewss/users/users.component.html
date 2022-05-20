@@ -1,5 +1,5 @@
 <app-card title="Company Configuration" *ngIf="showform">
-  <div class="app-card-actions"> 
+  <div class="cat"> 
     <button mat-raised-button color="red" (click)="AddRole()"><mat-icon>add_circle_outline</mat-icon>Roles</button>&nbsp;
      <button mat-raised-button color="primary" (click)="showHide()"><mat-icon>hide</mat-icon>Hide settings</button>
 </div>
@@ -30,6 +30,9 @@
           <tr>
             <th scope="col">SN</th>
             <th scope="col">Company Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
+            <th scope="col">Phone</th>
             <th scope="col">Salling Rate</th>
             <th scope="col">Change</th>
           </tr>
@@ -39,6 +42,9 @@
             <th scope="row">{{data.id}}</th>
             <td>{{data.company_name}}</td>
             <td>{{data.tax_rate|percent}}</td>
+            <td>{{data.tax_rate|percent}}</td>
+            <td>{{data.tax_rate|percent}}</td>
+            <td>{{data.tax_rate|percent}}</td>
             <td><button mat-raised-button (click)="changeConfig()"><mat-icon>edit</mat-icon></button></td>
           </tr>
         </tbody>
@@ -47,7 +53,7 @@
   </div>
 </app-card>&nbsp;
 <app-card title="Users">
-  <div class="app-card-actions">
+  <div class="cat">
     <button mat-raised-button color="primary" >Add User</button>&nbsp;
      <button mat-raised-button class="colo" type="button"  (click)="ExportTOExcel()">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="currentColor" class="bi bi-file-earmark-excel-fill" viewBox="0 0 16 16">
