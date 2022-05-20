@@ -15,8 +15,17 @@
              <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
            </svg>
            Print
-         </button>
+         </button>&nbsp;
+          <button style="background-color: rgb(121, 19, 19);color: whitesmoke;" mat-raised-button >reload</button>&nbsp;
    </div>
+   <div style="display: flex;" class="row">
+    <div class="col">
+        <mat-form-field class="fwidth">
+          <mat-label>Product Code</mat-label>
+            <input [(ngModel)]="pcode" (change)=" applyFilter()" matInput autocomplete="off"  placeholder="65667767889" type="text">
+      </mat-form-field>
+     </div>
+  </div>
    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
       <app-table [tableData]="store"
       [tableColumns]="storeTableColumns"

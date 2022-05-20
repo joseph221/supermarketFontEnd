@@ -5,7 +5,9 @@ import { CategorylistComponent } from './Viewss/categories/categoryList/category
 import { HomeComponent } from './Viewss/home/home.component';
 import { PosComponent } from './Viewss/pos/pos.component';
 import { AddproductComponent } from './Viewss/products/Add_product/addproduct/addproduct.component';
+import { ProPrintLatoutComponent } from './Viewss/products/productPrint/pro-print-latout/pro-print-latout.component';
 import { ProductsComponent } from './Viewss/products/products.component';
+import { SalesComponent } from './Viewss/sales/sales/sales.component';
 import { StoreComponent } from './Viewss/store/store/store.component';
 import { UpdateComponent } from './Viewss/update/update.component';
 import { AddUserComponent } from './Viewss/users/add-user/add-user.component';
@@ -45,10 +47,13 @@ const routes: Routes = [
       component: PosComponent
     },
     {path:"addProduct",component:AddproductComponent},
-    {path:"store", component:StoreComponent}
+    {path:"store", component:StoreComponent},
+    {path:"sales", component:SalesComponent},
+    
     
    ]
-  }
+  },
+  {path:"print",component:ProPrintLatoutComponent}
 ];
 
 @NgModule({

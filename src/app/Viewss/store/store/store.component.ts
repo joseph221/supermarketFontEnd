@@ -7,6 +7,7 @@ import * as XLSX from 'xlsx';
 import { Store } from '../Store';
 import { StoreserviceService } from 'src/app/services/store_service/storeservice.service';
 import { StoreFormComponent } from '../storeForm/store-form/store-form.component';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -15,6 +16,7 @@ import { StoreFormComponent } from '../storeForm/store-form/store-form.component
   styleUrls: ['./store.component.css']
 })
 export class StoreComponent implements OnInit {
+  pcode:any
   fileName = "store.xlsx"
   loading:Boolean
   store: Store[];   
@@ -45,6 +47,11 @@ export class StoreComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges): void {
     this.getStore();
   }
+  applyFilter(){
+    console.log(this.pcode)
+  }
+
+  
 
   ngOnInit(): void {
     this.initializeColumns();

@@ -1,5 +1,6 @@
 .sidenav-container {
   height: 100%;
+  
 }
 
 .sidenav {
@@ -7,7 +8,7 @@
   margin: 0%;
   border:0px;
  
-  background-color: rgb(38, 17, 66); 
+  background-color: rgb(1, 10, 51);
   color: white;
   
 }
@@ -31,10 +32,11 @@
   margin-left: 45px;
 }
 .sideUp{
-  background-color: #331b7c;
+  background-color: rgb(18, 68, 12);
+    color: whitesmoke;
 }
 .imgCont{
-  background-color: rgb(38, 17, 66); 
+  background-color: rgb(1, 10, 51); 
 }
 .hidden-print{
  

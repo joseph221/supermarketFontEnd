@@ -19,17 +19,20 @@ div{
     height: 90px;
     width: 100%;
     max-width: 100%;
-    -moz-box-shadow: 0 0 5px rgb(112, 112, 112);
-    -webkit-box-shadow: 0 0 5px rgb(112, 112, 112);
-    box-shadow: 0 0 5px rgb(112, 112, 112);
+    -moz-box-shadow: 5px 5px 5px rgb(112, 112, 112);
+    -webkit-box-shadow: 5px 5px 5px rgb(112, 112, 112);
+    box-shadow: 5px 5px 5px rgb(112, 112, 112);
     box-shadow: rgb(0, 47, 255);
     align-items: center;
+    color: white;
 }
 .Category {
-    background-color: rgb(0, 47, 255);
+    background-color: rgb(1, 15, 77);
+    color: whitesmoke;
 }
 .Products {
-    background-color: rgb(255, 187, 0);
+    background-color: rgb(151, 112, 3);
+    color: whitesmoke;
 }
 .Store .curency::before{
     content: 'Tsh: ';
@@ -39,7 +42,8 @@ div{
     content: '.00';
 }
 .Store {
-    background-color: rgb(40, 165, 23);
+    background-color: rgb(18, 68, 12);
+    color: whitesmoke;
 }
 .Sales .curency::before{
     content: 'Tsh: ';
@@ -48,7 +52,8 @@ div{
     content: '.00';
 }
 .Sales {
-    background-color: rgb(255, 6, 6);
+    background-color: rgb(121, 19, 19);
+    color: whitesmoke;
 }
 span{
     font-size: large;

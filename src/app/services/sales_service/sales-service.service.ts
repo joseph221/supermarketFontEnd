@@ -13,5 +13,11 @@ export class SalesServiceService {
     return this.http.get("http://localhost:8080/sales/totalsales")
   }
 
+  filter(firstDate:any,secondDate:any){
+    return this.http.get("http://localhost:8080/sales/salereport/start/"+firstDate+"/end/"+secondDate)
+  }
 
+  getAll(){
+    return this.http.get("http://localhost:8080/sales/get")
+  }
 }

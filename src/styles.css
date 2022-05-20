@@ -12,6 +12,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     .hidden-print * {
         display: none !important;
     }
+    
 
     .sidenav,
     .sidenav * {
@@ -23,9 +24,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     }
 }
 
+@media print {
+    .isPrinting > * { display: none; }
+    .isPrinting app-pro-print-latout { display: block; }
+  }
+
 .colo{
-    background-color: green;
+    background-color: rgb(18, 68, 12);
+    color: whitesmoke;
 }
 .colo2{
-    background-color: cornflowerblue;
+    background-color: rgb(100, 149, 237);
+    color: whitesmoke;
+}
+button{
+    color: #f3f5f9;
 }

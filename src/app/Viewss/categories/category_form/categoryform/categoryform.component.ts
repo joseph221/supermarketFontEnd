@@ -13,7 +13,7 @@ import { CategorylistComponent } from '../../categoryList/categorylist/categoryl
 })
 export class CategoryformComponent implements OnInit,OnChanges {
 
-  categoryForm!: FormGroup;
+  categoryForm: FormGroup;
 
   @Input() formData!:{
     crudeMode: String;

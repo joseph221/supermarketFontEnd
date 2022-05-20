@@ -1,0 +1,57 @@
+
+<app-card>
+  <form [formGroup] = "configForm" autocomplete="off">
+  <div class="row">
+    
+    <div class="col">
+      <mat-form-field class="w-100 example-full-width" appearance="outline">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="firstDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker startView="year"></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+      <mat-form-field class="w-100 example-full-width" appearance="outline">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="secondDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2 startView="year"></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <button style="margin-top: 15px;" class="colo" mat-raised-button (click)="fiter()">filter By Date</button>&nbsp;&nbsp;
+      <button style="margin-top: 15px;right: 0%;" mat-raised-button color="primary" >print</button>&nbsp;&nbsp;
+      <button style="margin-top: 15px;background-color: rgb(121, 19, 19);color: whitesmoke;" mat-raised-button  (click)="getAllsales()">reload</button>
+    </div>
+  </div>
+</form>
+</app-card>&nbsp;
+<app-card>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">SN</th>
+        <th scope="col">BARCODE</th>
+        <th scope="col">PRICE</th>
+        <th scope="col">QUANITITY</th>
+        <th scope="col">AMOUNT</th>
+        <th scope="col">RECIEPT NO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sale of salesReport,let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{sale.producode}}</td>
+        <td>{{sale.price}}</td>
+        <td>{{sale.qty}}</td>
+        <td>{{sale.amount}}</td>
+        <td>{{sale.receiptNo}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</app-card>

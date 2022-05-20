@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Component, ElementRef, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { ProductServiceService } from 'src/app/services/product_service/product-service.service';
@@ -9,6 +9,8 @@ import * as XLSX from 'xlsx';
 import { MatDialog } from '@angular/material/dialog';
 import { AddproductComponent } from './Add_product/addproduct/addproduct.component';
 import { EditFormComponent } from './edit/edit-form/edit-form.component';
+import { CartegoryService } from 'src/app/services/category_service/cartegory.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-products',
@@ -20,8 +22,12 @@ export class ProductsComponent implements OnInit {
   loading:Boolean
   product: product[];   
   productTableColumns: TableColumns[];
+  category:any[];
+  categoryForm: FormGroup;
+
   
-  constructor(private productservice: ProductServiceService,private router: Router,private matDailog:MatDialog) { }
+  constructor(private productservice: ProductServiceService,
+    private router: Router,private matDailog:MatDialog,private categoryservice:CartegoryService) { }
   ExportTOExcel() {  
     /* pass here the table id */
     let element = document.getElementById('excel-table');
@@ -34,15 +40,31 @@ export class ProductsComponent implements OnInit {
     /* save to file */  
     XLSX.writeFile(wb, this.fileName);
   }
-  ngOnChanges(changes: SimpleChanges): void {
+
+  applyFilter() {
+   console.log(this.categoryForm.value)
     
-    console.log(changes)
+  }
+  formConfiguration(){
+    this.categoryForm = new FormGroup({
+      categoryName: new FormControl(null,[Validators.required]),
+      cat_id:new FormControl(null,[Validators.required])
+    });
+  }
+  
+  getCategory(){
+    this.categoryservice.getCategories().subscribe(res =>{
+      this.category = res
+    })
   }
 
   ngOnInit(): void {
+    this.formConfiguration();
     this.initializeColumns();
     this.getProduct();
+    this.getCategory();
   }
+
 
   sortData(sortParameters: Sort) {
     const keyName = sortParameters.active;
@@ -54,7 +76,14 @@ export class ProductsComponent implements OnInit {
       return this.getProduct();
     }
   }
+  
+  sender(){
+    this.productservice.sendData=this.product
+  }
 
+  navigate(){
+    this.productservice.onPrint()
+  }
   removeItem(code:String) {
     this.productservice.delete(code) .subscribe(()=> {
       this.getProduct();

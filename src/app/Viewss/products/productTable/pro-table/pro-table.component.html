@@ -2,12 +2,7 @@
     <ng-container>
 
         <!-- Filter -->
-        <ng-container *ngIf="isFilterable" [matColumnDef]="this.rowActionIcon">
-        <mat-form-field>
-            <mat-label>Filter</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="filter" autocomplete="off">
-        </mat-form-field>
-        </ng-container>
+        
     
         <!-- Table -->
         <table id="excel-table"  mat-table class="full-width-table" [dataSource]="tableDataSource" matSort (matSortChange)="sortTable($event)">

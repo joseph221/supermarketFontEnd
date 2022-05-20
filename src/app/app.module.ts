@@ -40,6 +40,10 @@ import { ChartsModule } from 'ng2-charts';
 import { ProTableComponent } from './Viewss/products/productTable/pro-table/pro-table.component';
 import { StoreComponent } from './Viewss/store/store/store.component';
 import { StoreFormComponent } from './Viewss/store/storeForm/store-form/store-form.component';
+import { SalesComponent } from './Viewss/sales/sales/sales.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ProPrintLatoutComponent } from './Viewss/products/productPrint/pro-print-latout/pro-print-latout.component';
 
 
 @NgModule({
@@ -63,6 +67,8 @@ import { StoreFormComponent } from './Viewss/store/storeForm/store-form/store-fo
     ProTableComponent,
     StoreComponent,
     StoreFormComponent,
+    SalesComponent,
+    ProPrintLatoutComponent,
   
     
     
@@ -90,7 +96,9 @@ import { StoreFormComponent } from './Viewss/store/storeForm/store-form/store-fo
     MatSortModule,
     FormsModule,
     MatProgressBarModule,
-    ChartsModule
+    ChartsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
     
     
   ],

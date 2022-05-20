@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { product } from 'src/app/Viewss/products/product';
 
@@ -7,8 +8,24 @@ import { product } from 'src/app/Viewss/products/product';
   providedIn: 'root'
 })
 export class ProductServiceService {
+  sendData:any[]
+  isPrinting=false
+  constructor(private http:HttpClient,private router:Router) { }
 
-  constructor(private http:HttpClient) { }
+  onPrint(){
+    this.isPrinting = true
+    this.router.navigateByUrl("print")
+  }
+
+  onDataReady() {
+    this.router.navigateByUrl("print").then(()=>{
+      window.print();
+    this.isPrinting = false
+    this.router.navigateByUrl("product")
+ 
+    })
+    
+  }
 
   getProduct():Observable<product[]>{
     return this.http.get<product[]>("http://localhost:8080/proList/get");
@@ -37,4 +54,6 @@ export class ProductServiceService {
   getProductNum(){
     return this.http.get("http://localhost:8080/proList/pronum");
   }
+
+
 }

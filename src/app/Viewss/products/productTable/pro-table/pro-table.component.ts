@@ -34,6 +34,7 @@ export class ProTableComponent implements OnInit {
     this.setTableDataSource(data);
   }
 
+
   constructor() {
     
   }
