@@ -1,16 +1,17 @@
-import { AfterContentChecked, AfterViewInit, Component, NgModule, OnInit } from '@angular/core';
+import { AfterContentChecked, Component, NgModule, OnInit } from '@angular/core';
 import { ProductServiceService } from 'src/app/services/product_service/product-service.service';
 import { ReceiptServiceService } from 'src/app/services/receipt_service/receipt-service.service';
 import { product } from '../products/product';
 import { Receipt } from '../receipt/Receipt';
 import Swal from 'sweetalert2';
+import { AdminService } from 'src/app/services/Admin_service/admin.service';
 
 @Component({
   selector: 'app-pos',
   templateUrl: './pos.component.html',
   styleUrls: ['./pos.component.css']
 })
-export class PosComponent implements OnInit,AfterViewInit,AfterContentChecked{
+export class PosComponent implements OnInit,AfterContentChecked{
   convertedImage:any
   price:number;
   receipt: Receipt;
@@ -22,13 +23,18 @@ export class PosComponent implements OnInit,AfterViewInit,AfterContentChecked{
   total1 = 0;
   product:product;
   purchasedProduct:product[]=[];
+  cname:string
 
   constructor(private procuctservice:ProductServiceService,
-    private receiptservice:ReceiptServiceService,) { 
+    private receiptservice:ReceiptServiceService,
+    private company:AdminService) { 
     
   }
-  ngAfterViewInit(): void {
-    
+  
+  getCompanyDetails(){
+    this.company.getComponanyName().subscribe(res =>{
+      this.cname = res.company_name
+    })
   }
 
   ngAfterContentChecked()  {
@@ -57,12 +63,13 @@ export class PosComponent implements OnInit,AfterViewInit,AfterContentChecked{
 
 
   ngOnInit(): void {
+    this.getCompanyDetails()
     
     //this.receiptNo = this.getRandomInt();
-    const $btnPrint = document.querySelector("#btnPrint");
-    $btnPrint.addEventListener("click", () => {
-    window.print();
-  });
+  //   const $btnPrint = document.querySelector("#btnPrint");
+  //   $btnPrint.addEventListener("click", () => {
+  //   window.print();
+  // });
   }
 
   getRandomInt() {
@@ -116,6 +123,9 @@ export class PosComponent implements OnInit,AfterViewInit,AfterContentChecked{
   removePro(details){
     this.purchasedProduct.splice( this.purchasedProduct.findIndex(a =>
        a.producode === details.id) , 1)
+  }
+  print(){
+    window.print();
   }
 
 }

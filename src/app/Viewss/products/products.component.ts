@@ -47,6 +47,9 @@ export class ProductsComponent implements OnInit {
 
   applyFilter() {
    console.log(this.categoryForm.value)
+   this.productservice.filterByCatId(this.categoryForm.value.cat_id).subscribe((res:any) =>{
+     this.product = res
+   })
     
   }
   formConfiguration(){

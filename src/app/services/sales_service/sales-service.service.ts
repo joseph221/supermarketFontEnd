@@ -31,4 +31,8 @@ export class SalesServiceService {
   getAll(){
     return this.http.get("http://localhost:8080/sales/get")
   }
+
+  getChartData(){
+    return this.http.get("http://localhost:8080/sales/chart")
+  }
 }

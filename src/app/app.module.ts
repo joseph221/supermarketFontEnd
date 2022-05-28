@@ -46,7 +46,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ProPrintLatoutComponent } from './Viewss/products/productPrint/pro-print-latout/pro-print-latout.component';
 import { StoreprintlayoutComponent } from './Viewss/store/print/storeprintlayout/storeprintlayout.component';
 import { SalesPrintLayoutComponent } from './Viewss/sales/sales-print-layout/sales-print-layout.component';
-
+import { ToastrModule} from 'ngx-toastr';
+import { LoginformComponent } from './Viewss/login/loginform/loginform.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { SalesPrintLayoutComponent } from './Viewss/sales/sales-print-layout/sal
     ProPrintLatoutComponent,
     StoreprintlayoutComponent,
     SalesPrintLayoutComponent,
+    LoginformComponent,
   
     
     
@@ -102,7 +104,9 @@ import { SalesPrintLayoutComponent } from './Viewss/sales/sales-print-layout/sal
     MatProgressBarModule,
     ChartsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    ToastrModule
+
     
     
   ],

@@ -39,6 +39,7 @@ th.price {
 }
 
 #ticket {
+    border: 1px dotted rgb(48, 48, 48);
     background-color:white;
     font-size: 12px;
     font-family: 'Times New Roman';
@@ -59,9 +60,15 @@ th.price {
     
     
 }
+.card{
+    max-width: 215px;
+    max-height: 215px;
+    object-fit: cover;
+}
 .card-img-top{
     max-width: 215px;
     max-height: 215px;
+    object-fit: cover;
 }
 .img2{
     max-width: 65px;

@@ -1,0 +1,95 @@
+<!-- <div class="text-center">
+  <h4 class="text-center"> Login form with Validation using Angular Material</h4>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate class="d-flex-center">
+    <div class="example-container">
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email">
+          <mat-error *ngIf="!loginForm.get('email')?.errors?.required && (loginForm.get('email')?.errors?.pattern)">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) && loginForm.get('email')?.errors?.required">
+            Email is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="mt-top-2">
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" formControlName="password">    
+          <mat-error *ngIf="!loginForm.get('password')?.errors?.required">
+            Password length must be greater than or equal to 8 and password must contain one or more uppercase , lowercase , numeric and special characters
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.errors?.required">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="mt-top">
+        <button [disabled]="!loginForm.valid" mat-raised-button color="primary" mat-button>Sign In</button>
+      </div>
+    </div>
+  </form>
+</div> -->
+<section class="vh-100" style="background-color: #48855a;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-10">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="assets/lg3.jpeg"
+                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate class="d-flex-center">
+
+                  <div style="display: flex;">
+                    <mat-icon >account_circle</mat-icon>
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+                  </div>
+
+                 
+
+                  <div class="form-outline mb-4">
+                    <mat-form-field class="w-100 example-full-width" appearance="outline">
+                      <input matInput placeholder="Email" formControlName="email">
+                      <mat-error *ngIf="!loginForm.get('email')?.errors?.required && (loginForm.get('email')?.errors?.pattern)">
+                        Please enter a valid email address
+                      </mat-error>
+                      <mat-error *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) && loginForm.get('email')?.errors?.required">
+                        Email is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <mat-form-field class="w-100 example-full-width" appearance="outline">
+                      <input matInput type="password" placeholder="Password" formControlName="password">    
+                      <mat-error *ngIf="!loginForm.get('password')?.errors?.required">
+                        Password length must be greater than or equal to 8 and password must contain one or more uppercase , lowercase , numeric and special characters
+                      </mat-error>
+                      <mat-error *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.errors?.required">
+                        Password is required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="pt-1 mb-4">
+                    <button [disabled]="!loginForm.valid" mat-raised-button color="primary" mat-button>Sign In</button>
+                  </div>
+
+                  
+                  <a href="#!" class="small text-muted">Terms of use.</a>
+                  <a href="#!" class="small text-muted">Privacy policy</a>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

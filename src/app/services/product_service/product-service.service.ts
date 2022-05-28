@@ -54,5 +54,7 @@ export class ProductServiceService {
     return this.http.get("http://localhost:8080/proList/pronum");
   }
 
-
+  filterByCatId(cat_id:number){
+     return this.http.get("http://localhost:8080/proList/report/"+cat_id);
+  }
 }

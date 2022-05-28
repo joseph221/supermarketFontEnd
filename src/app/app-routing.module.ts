@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './shared/guard/auth.guard';
 import { DashboardComponent } from './Views/dashboard/dashboard.component';
 import { CategorylistComponent } from './Viewss/categories/categoryList/categorylist/categorylist.component';
 import { HomeComponent } from './Viewss/home/home.component';
+import { LoginformComponent } from './Viewss/login/loginform/loginform.component';
 import { PosComponent } from './Viewss/pos/pos.component';
 import { AddproductComponent } from './Viewss/products/Add_product/addproduct/addproduct.component';
 import { ProPrintLatoutComponent } from './Viewss/products/productPrint/pro-print-latout/pro-print-latout.component';
@@ -16,12 +18,15 @@ import { AddUserComponent } from './Viewss/users/add-user/add-user.component';
 import { UsersComponent } from './Viewss/users/users.component';
 
 const routes: Routes = [
+  
+  {path:'login',component:LoginformComponent},
   {
-    path: '',
+    path: 'main',
    component: DashboardComponent,
+    canActivate:[AuthGuard],
    children: [
     {
-      path: '',
+      path: 'home',
       component: HomeComponent
     },
     {
@@ -53,11 +58,14 @@ const routes: Routes = [
     {path:"sales", component:SalesComponent},
     
     
+    
    ]
   },
+  
   {path:"product-print",component:ProPrintLatoutComponent},
   {path:"store-print",component:StoreprintlayoutComponent},
-  {path:"sales-print",component:SalesPrintLayoutComponent}
+  {path:"sales-print",component:SalesPrintLayoutComponent},
+  {path:'**', redirectTo:'login'},
 ];
 
 @NgModule({

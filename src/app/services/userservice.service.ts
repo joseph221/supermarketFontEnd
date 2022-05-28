@@ -41,4 +41,8 @@ export class UserserviceService {
   getAllConfig():Observable<config[]>{
     return this.http.get<config[]>("http://localhost:8080/config/getAll")
   }
+
+  login(username:String,password:String){
+    return this.http.get("http://localhost:8080/user/login/uname/"+username+"/pass/"+password)
+  }
 }

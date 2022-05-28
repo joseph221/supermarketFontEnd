@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 import { config } from 'src/app/Views/config';
 import { RoleserviceService } from 'src/app/services/role_service/roleservice.service';
 import { Role } from './Role';
+import { UpdateComponent } from '../update/update.component';
 
 @Component({
   selector: 'app-users',
@@ -120,6 +121,9 @@ export class UsersComponent implements OnInit,OnChanges {
       this.roleservice.Addrole(values).subscribe(res=>{
         Swal.fire('',"Role saved",'success')
         this.getRoles()
+        this.dialog.closeAll()
+        window.location.reload()
+        this.create = true
       })
     }else if(!this.create){
       const values = this.roleForm.value
@@ -189,32 +193,55 @@ export class UsersComponent implements OnInit,OnChanges {
         isSortable: true
       },
       {
+        name: 'First Name',
+        dataKey: 'firstname',
+        position: 'right',
+        isSortable: false
+      },
+      {
+        name: 'Last Name',
+        dataKey: 'lastname',
+        position: 'right',
+        isSortable: true
+      },
+      {
         name: 'User Name',
         dataKey: 'username',
         position: 'right',
         isSortable: false
       },
       {
-        name: 'Password',
-        dataKey: 'password',
+        name: 'Roles',
+        dataKey: 'roles.roleName',
         position: 'right',
         isSortable: true
       },
     ];
+    
   }
   
   viewAll(){
     this.userservice.getAll().subscribe((dat) => {
       this.user = dat
+      console.log(this.user)
    })
   }
 
   createUser(){
-    this.router.navigateByUrl("/adduser");
+    const config={
+      width:'50%'
+    }
+    const dialogRef = this.dialog.open(AddUserComponent,config)
+    
+    
+    //this.router.navigateByUrl("main/adduser");
   }
 
   onUpdate(data: any){
-    this.router.navigateByUrl("update/"+ data.id)
+    const config={
+      width:'50%'
+    }
+    this.dialog.open(UpdateComponent,config)
   }
 
 }

@@ -46,7 +46,7 @@
         <div>
             <div id="ticket">
                 <p class="centered"> SALES RECEIPT
-                <p class="centered"> SUPERMAKET NAME
+                <p class="centered"> {{cname|uppercase}}
                     <br>Address line 1
                     <br>Receipt No:{{receiptNo}}
                     <br>Cashier Name:Joseph</p>
@@ -93,13 +93,13 @@
              <!--submit div-->
              <div style="width: 215px;">
                 <mat-card class="hidden-print">
-                    <button id="btnPrint2" class="hidden-print"(click)=" save()">SAVE RECEIPT</button>
+                    <button mat-stroked-button style="background-color: rgb(18, 68, 12); color: whitesmoke;" class="hidden-print"(click)=" save()">SAVE RECEIPT</button>
                 </mat-card>
             </div>
             <!--print button div div-->
             <div>
                 <mat-card class="hidden-print">
-                    <button id="btnPrint" class="hidden-print">Print</button>
+                    <button mat-raised-button style="background-color: rgb(100, 149, 237); color: whitesmoke;" class="hidden-print" (click)="print()">Print</button>
                 </mat-card>
             </div>
            

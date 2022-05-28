@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CartegoryService } from 'src/app/services/category_service/cartegory.service';
+import { NotificationService } from 'src/app/services/notification/notification.service';
 import Swal from 'sweetalert2';
 import { CategorylistComponent } from '../../categoryList/categorylist/categorylist.component';
 
@@ -20,7 +21,9 @@ export class CategoryformComponent implements OnInit,OnChanges {
     data: any;
   } 
 
-  constructor(private router:Router,private categoryService:CartegoryService,private categoryList:CategorylistComponent) { }
+  constructor(private router:Router,private categoryService:CartegoryService,
+    private categoryList:CategorylistComponent,
+    ) { }
   
   ngOnChanges(changes: SimpleChanges): void {
     if (this.formData.crudeMode === "update") {
@@ -48,10 +51,12 @@ export class CategoryformComponent implements OnInit,OnChanges {
     if(this.formData.crudeMode === "create"){
       this.categoryService.add(values).subscribe((response) =>{
       Swal.fire('','Saved','success')
+        //this.notification.showSuccess("Saved'","category")
       this.categoryList.ngOnInit()
       this.categoryForm.reset("")
       },(error) =>{
         Swal.fire('','something went wrong on server','error')
+        //this.notification.showError("server is off","category")
       })
       console.log("working")
     }else if(this.formData.crudeMode === "update"){
