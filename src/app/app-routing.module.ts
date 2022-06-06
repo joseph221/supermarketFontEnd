@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/guard/auth.guard';
+import { RoleguardGuard } from './shared/guard/roleguard.guard';
 import { DashboardComponent } from './Views/dashboard/dashboard.component';
 import { CategorylistComponent } from './Viewss/categories/categoryList/categorylist/categorylist.component';
 import { HomeComponent } from './Viewss/home/home.component';
@@ -30,8 +31,12 @@ const routes: Routes = [
       component: HomeComponent
     },
     {
-      path: 'users',
-      component: UsersComponent
+      path: 'Admin',
+      component: UsersComponent,
+      canActivate: [RoleguardGuard],
+      data:{
+        expectedRoles:['Admin']
+      }
     },
     {
       path: 'category',
@@ -65,7 +70,7 @@ const routes: Routes = [
   {path:"product-print",component:ProPrintLatoutComponent},
   {path:"store-print",component:StoreprintlayoutComponent},
   {path:"sales-print",component:SalesPrintLayoutComponent},
-  {path:'**', redirectTo:'login'},
+  { path: '**', redirectTo: '/main/home', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -27,34 +27,34 @@ export class ProductServiceService {
   }
 
   getProduct():Observable<product[]>{
-    return this.http.get<product[]>("http://localhost:8080/proList/get");
+    return this.http.get<product[]>("http://localhost:8081/proList/get");
   }
 
   getByProduct(code:string,qt:number,cashierNam:string,receiptNo:number):Observable<product>{
-    return this.http.get<product>("http://localhost:8080/proList?producode="+ code)
+    return this.http.get<product>("http://localhost:8081/proList?producode="+ code)
     .pipe(map((data:product) => data = { ...data,qty:qt,cashierName:cashierNam,receiptNo:receiptNo}))
   }
 
   delete(code:String){
-    return this.http.delete("http://localhost:8080/proList/delete/"+code);
+    return this.http.delete("http://localhost:8081/proList/delete/"+code);
   }
 
   getByCode(id:String):Observable<product>{
-    return this.http.get<product>("http://localhost:8080/proList?producode="+id)
+    return this.http.get<product>("http://localhost:8081/proList?producode="+id)
   }
 
   update(body: object){
-    return this.http.put("http://localhost:8080/proList/put",body)
+    return this.http.put("http://localhost:8081/proList/put",body)
   }
 
   add(body:any){
-    return this.http.post("http://localhost:8080/proList/post",body);
+    return this.http.post("http://localhost:8081/proList/post",body);
   }
   getProductNum(){
-    return this.http.get("http://localhost:8080/proList/pronum");
+    return this.http.get("http://localhost:8081/proList/pronum");
   }
 
   filterByCatId(cat_id:number){
-     return this.http.get("http://localhost:8080/proList/report/"+cat_id);
+     return this.http.get("http://localhost:8081/proList/report/"+cat_id);
   }
 }

@@ -21,18 +21,18 @@ export class SalesServiceService {
   }
 
   getTotalSales(){
-    return this.http.get("http://localhost:8080/sales/totalsales")
+    return this.http.get("http://localhost:8081/sales/totalsales")
   }
 
   filter(firstDate:any,secondDate:any){
-    return this.http.get("http://localhost:8080/sales/salereport/start/"+firstDate+"/end/"+secondDate)
+    return this.http.get("http://localhost:8081/sales/salereport/start/"+firstDate+"/end/"+secondDate)
   }
 
   getAll(){
-    return this.http.get("http://localhost:8080/sales/get")
+    return this.http.get("http://localhost:8081/sales/get")
   }
 
   getChartData(){
-    return this.http.get("http://localhost:8080/sales/chart")
+    return this.http.get("http://localhost:8081/sales/chart")
   }
 }

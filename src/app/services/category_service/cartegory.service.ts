@@ -11,25 +11,25 @@ export class CartegoryService {
   constructor(private http:HttpClient) { }
 
   getCategories():Observable<Category[]>{
-   return this.http.get<Category[]>("http://localhost:8080/category/get");
+   return this.http.get<Category[]>("http://localhost:8081/category/get");
   }
   add(body:object){
-    return this.http.post("http://localhost:8080/category/post",body);
+    return this.http.post("http://localhost:8081/category/post",body);
   }
 
   getById(id:number){
-    return this.http.get("http://localhost:8080/category/"+id)
+    return this.http.get("http://localhost:8081/category/"+id)
   }
 
   update(body: object){
-    return this.http.put("http://localhost:8080/category/put",body)
+    return this.http.put("http://localhost:8081/category/put",body)
   }
 
   delete(id:number){
-    return this.http.delete("http://localhost:8080/category/delete/"+id);
+    return this.http.delete("http://localhost:8081/category/delete/"+id);
   }
 
   getCategoryNum(){
-    return this.http.get("http://localhost:8080/category/categonum");
+    return this.http.get("http://localhost:8081/category/categonum");
   }
 }

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit,OnDestroy{
+export class DashboardComponent implements OnInit{
   companyName:string
   email:any
   role:any[]
@@ -21,10 +21,7 @@ export class DashboardComponent implements OnInit,OnDestroy{
     );
 
   constructor(private breakpointObserver: BreakpointObserver,private adminservice:AdminService,private router:Router) {}
-  ngOnDestroy(): void {
-    sessionStorage.clear()
-  }
-  
+ 
   
   ngOnInit(): void {
     this.adminservice.getComponanyName().subscribe(res=>{
@@ -36,13 +33,15 @@ export class DashboardComponent implements OnInit,OnDestroy{
     console.log(this.role)
   }
 
-  createUser(){
-    alert("working")
-  }
+  // createUser(){
+  //   alert("working")
+  // }
 
   logOut(){
     sessionStorage.clear()
-    this.router.navigateByUrl('/login')
+    this.router.navigate(['login']).then(()=>{
+      window.location.reload()
+    })
   }
 
 }

@@ -20,7 +20,7 @@ export class StoreserviceService {
     })
   }
   getTotalStore(){
-    return this.http.get("http://localhost:8080/store/amount")
+    return this.http.get("http://localhost:8081/store/amount")
   }
 
   delete(id:number){
@@ -32,14 +32,14 @@ export class StoreserviceService {
   }
 
   getBycode(code:string):Observable<Store>{
-    return this.http.get<Store>("http://localhost:8080/store?producode="+code)
+    return this.http.get<Store>("http://localhost:8081/store?producode="+code)
   }
 
   create(body:Store){
-    return this.http.post("http://localhost:8080/store/post",body)
+    return this.http.post("http://localhost:8081/store/post",body)
   }
 
   getStore(){
-    return this.http.get("http://localhost:8080/store/get")
+    return this.http.get("http://localhost:8081/store/get")
   }
 }

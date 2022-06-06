@@ -11,14 +11,14 @@ export class ReceiptServiceService {
   constructor(private http:HttpClient) { }
 
   addreceipt(data:object){
-    return this.http.post("http://localhost:8080/receipt/post",data);
+    return this.http.post("http://localhost:8081/receipt/post",data);
   }
 
   getReceipt():Observable<Receipt[]>{
-    return this.http.get<Receipt[]>("http://localhost:8080/receipt/get");
+    return this.http.get<Receipt[]>("http://localhost:8081/receipt/get");
   }
 
   getByReceiptNo(receiptNo:number):Observable<Receipt[]>{
-    return this.http.get<Receipt[]>("http://localhost:8080/receipt/"+receiptNo);
+    return this.http.get<Receipt[]>("http://localhost:8081/receipt/"+receiptNo);
   }
 }

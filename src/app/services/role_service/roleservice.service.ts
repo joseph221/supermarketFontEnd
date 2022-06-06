@@ -11,18 +11,18 @@ export class RoleserviceService {
   constructor(private http:HttpClient) { }
 
   Addrole(body:any){
-    return this.http.post("http://localhost:8080/role/post",body)
+    return this.http.post("http://localhost:8081/role/post",body)
   }
 
   getRoles():Observable<Role[]>{
-    return this.http.get<Role[]>("http://localhost:8080/role/get")
+    return this.http.get<Role[]>("http://localhost:8081/role/get")
   }
 
   getById(id:number):Observable<Role>{
-    return this.http.get<Role>("http://localhost:8080/role/"+id)
+    return this.http.get<Role>("http://localhost:8081/role/"+id)
   }
 
   updateRole(body:any){
-    return this.http.put("http://localhost:8080/role/edit",body)
+    return this.http.put("http://localhost:8081/role/edit",body)
   }
 }

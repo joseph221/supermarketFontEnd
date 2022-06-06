@@ -34,9 +34,8 @@ export class LoginformComponent implements OnInit {
       return;
     }
     this.userservice.login(this.loginForm.value.email,this.loginForm.value.password).subscribe(res =>{
-      
-      if(res != null){
-        sessionStorage.setItem('user',JSON.stringify(res))
+      sessionStorage.setItem('user',JSON.stringify(res))
+      if(res){
         this.router.navigate(['main/home'])
         console.log("faild to navigate")
       }else{

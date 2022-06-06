@@ -6,8 +6,8 @@
     <mat-toolbar class="imgCont" ><img src="./assets/lg3.jpeg" class="img"></mat-toolbar>
 
     <mat-nav-list *ngFor="let r of role">
-      <a mat-list-item routerLink="/" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"><mat-icon>home</mat-icon>&nbsp;HOME</a>
-      <a  *ngIf="r.roleName == 'Admin'" mat-list-item routerLink="users"[routerLinkActive]="['active']"><mat-icon>supervisor_account</mat-icon>&nbsp;ADMIN</a>
+      <a mat-list-item routerLink="home" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"><mat-icon>home</mat-icon>&nbsp;HOME</a>
+      <a  *ngIf="r.roleName == 'Admin'" mat-list-item routerLink="Admin"[routerLinkActive]="['active']"><mat-icon>supervisor_account</mat-icon>&nbsp;ADMIN</a>
       <a mat-list-item routerLink="category"[routerLinkActive]="['active']"><mat-icon>work</mat-icon>&nbsp;CATEGORIES</a>
       <a mat-list-item routerLink="product"[routerLinkActive]="['active']"><mat-icon>local_grocery_store</mat-icon>&nbsp; PRODUCTS</a>
       <a mat-list-item routerLink="store"[routerLinkActive]="['active']"><mat-icon>store_mall_directory</mat-icon>&nbsp; STORE</a>

@@ -30,7 +30,7 @@
                 </ng-template>
         
                 <!-- column data -->
-                <td mat-cell *matCellDef="let record of tableDataSource" [class.text-right]="tableColumn.position == 'right'">
+                <td mat-cell *matCellDef="let record tableDataSource" [class.text-right]="tableColumn.position == 'right'">
                 {{record[tableColumn.dataKey]}}
                 </td>
                 </ng-container>

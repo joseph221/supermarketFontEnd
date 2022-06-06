@@ -12,7 +12,7 @@ export class AdminService {
   constructor(private userComponent:UsersComponent,private http:HttpClient) { }
 
   getComponanyName():Observable<config>{
-    return this.http.get<config>("http://localhost:8080/config/get")
+    return this.http.get<config>("http://localhost:8081/config/get")
   }
 
 }
