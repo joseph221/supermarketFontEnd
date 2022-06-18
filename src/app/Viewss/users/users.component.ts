@@ -71,7 +71,10 @@ export class UsersComponent implements OnInit,OnChanges {
   formConfig(){
     this.configForm = new FormGroup({
       company_name:new FormControl("",[Validators.required]),
-      tax_rate:new FormControl("",[Validators.required])
+      tax_rate:new FormControl("",[Validators.required]),
+      address:new FormControl("",[Validators.required]),
+      city:new FormControl("",[Validators.required]),
+      phone:new FormControl("",[Validators.required])
     })
   }
 
@@ -177,9 +180,20 @@ export class UsersComponent implements OnInit,OnChanges {
   removeItem(id:number) {
     this.userservice.delete(id) .subscribe(()=> {
     this.viewAll();
-  });
+    });
    
-    console.log(id);
+  }
+
+  editUser(id:any){
+    console.log(id)
+    const conAndData = {
+      data:id,
+      width:'50%'
+    }
+    const dialogRef =this.dialog.open(UpdateComponent,conAndData)
+    dialogRef.afterClosed().subscribe(result =>{
+      this.ngOnInit();
+    })
   }
 
   
@@ -237,11 +251,5 @@ export class UsersComponent implements OnInit,OnChanges {
     //this.router.navigateByUrl("main/adduser");
   }
 
-  onUpdate(data: any){
-    const config={
-      width:'50%'
-    }
-    this.dialog.open(UpdateComponent,config)
-  }
-
+  
 }

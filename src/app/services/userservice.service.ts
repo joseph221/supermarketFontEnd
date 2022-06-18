@@ -8,7 +8,7 @@ import { User } from '../Viewss/users/User';
   providedIn: 'root'
 })
 export class UserserviceService {
-
+  uid:any
   constructor(private http: HttpClient) { }
 
   getAll():Observable<User[]>{

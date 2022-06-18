@@ -35,15 +35,16 @@
   </table>
 
   <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
-     <app-pro-table [tableData]="product"
-     [tableColumns]="productTableColumns"
-     [isPageable]="true"
-     [paginationSizes]="[2,4,6]"
-     [defaultPageSize]="4"
-     (sort)="sortData($event)"
-     [rowActionIcon]="'delete'"
-     (rowAction)="removeItem($event)"
-     (rowAction2)="editProduct($event)"
-     >
-     </app-pro-table>
+  <app-pro-table [tableData]="product"
+  [tableColumns]="productTableColumns"
+  [isPageable]="true"
+  [imageColumn]="'joo'"
+  [paginationSizes]="[2,4,6]"
+  [defaultPageSize]="4"
+  (sort)="sortData($event)"
+  [rowActionIcon]="'delete'"
+  (rowAction)="removeItem($event)"
+  (rowAction2)="editProduct($event)"
+  >
+  </app-pro-table>
   </app-card>

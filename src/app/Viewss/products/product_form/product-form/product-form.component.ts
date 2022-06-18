@@ -19,6 +19,7 @@ export class ProductFormComponent implements OnInit,OnChanges {
   public selectedFile;
   public event1;
   imgURL:any
+
   
   @Input() info:{
     crudeMode: String;

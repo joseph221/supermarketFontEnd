@@ -25,15 +25,24 @@
             </ng-template>
     
             <!-- column data -->
-            <td mat-cell *matCellDef="let record of tableDataSource" [class.text-right]="tableColumn.position == 'right'">
+            <td mat-cell *matCellDef="let record  tableDataSource" [class.text-right]="tableColumn.position == 'right'">
             {{record[tableColumn.dataKey]}}
             </td>
+
+            
+            </ng-container>
+
+            <ng-container [matColumnDef]="imageColumn">
+                <th mat-header-cell *matHeaderCellDef >IMAGE</th>
+                <td mat-cell *matCellDef="let record  tableDataSource" >
+                    <img [src]="'data:image/jpg;base64,'+record.picByte" alt="" style="width: 65px; height:65px; border-radius:5px">
+                </td>
             </ng-container>
 
              <!-- action column -->
             <ng-container *ngIf="rowActionIcon?.length" [matColumnDef]="rowActionIcon" >
             <th mat-header-cell *matHeaderCellDef>ACTIONS</th>
-            <td mat-cell *matCellDef="let record of tableDataSource" [id]="rowActionIcon" >
+            <td mat-cell *matCellDef="let record  tableDataSource" [id]="rowActionIcon" >
                 <button mat-mini-fab color="warn" (click)="delete(record.producode)"><mat-icon>{{rowActionIcon}}</mat-icon></button>
             <button mat-mini-fab color="primary" (click)="edit(record.producode)">
                 <mat-icon>edit</mat-icon>

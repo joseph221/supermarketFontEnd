@@ -21,20 +21,18 @@ export class UpdateComponent implements OnInit {
     private router1: Router) { }
 
   ngOnInit(): void {
-    const user_id = this.router.snapshot.params["id"];
-    this.getById(user_id);
-    this.userForm = new FormGroup({
-      id: new FormControl(null),
-      username: new FormControl(null,[Validators.required]),
-      password: new FormControl(null,[Validators.required])
-    });
+    const user_id = this.userservice.uid;
+    // this.getById(user_id);
+    // this.userForm = new FormGroup({
+    //   id: new FormControl(null),
+    //   username: new FormControl(null,[Validators.required]),
+    //   password: new FormControl(null,[Validators.required])
+    // });
   }
 
   getById(id: number){
     this.userservice.getById(id).subscribe((data:any) =>{
       console.log("user ",data)
-      //this.userForm.get("username").setValue(data.username)
-      //this.userForm.get("password").setValue(data.password)
       Object.keys(data).forEach((key) =>{
         if(this.userForm.value.hasOwnProperty(key)){
           this.userForm.get(key).setValue(data[key])

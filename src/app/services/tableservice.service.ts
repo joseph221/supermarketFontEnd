@@ -11,10 +11,6 @@ export class TableserviceService {
   
   constructor(public usercomponent: UsersComponent,public updateComponent: UpdateComponent) { }
 
-  UpdateUser(Data: any){
-    this.usercomponent.onUpdate(Data);
-  }
-
   getAll(){
     this.usercomponent.viewAll();
   }

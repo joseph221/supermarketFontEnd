@@ -38,7 +38,7 @@
                  <!-- action column -->
                 <ng-container *ngIf="rowActionIcon?.length" [matColumnDef]="rowActionIcon" >
                 <th mat-header-cell *matHeaderCellDef>ACTIONS</th>
-                <td mat-cell *matCellDef="let record of tableDataSource" [id]="rowActionIcon" >
+                <td mat-cell *matCellDef="let record  tableDataSource" [id]="rowActionIcon" >
                     <button mat-mini-fab color="warn" (click)="delete(record.id)"><mat-icon>{{rowActionIcon}}</mat-icon></button>
                 <button mat-mini-fab color="primary" (click)="edit(record.id)">
                     <mat-icon>edit</mat-icon>

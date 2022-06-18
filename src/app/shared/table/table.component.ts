@@ -83,16 +83,5 @@ export class TableComponent implements OnInit,AfterViewInit,OnChanges {
   edit(id:number){
     this.rowAction2.emit(id);
   }
-  update(data: any){
-    this.tableservice.UpdateUser(data);
-  }
-
-  getbyId(id:number){
-    this.tableservice.UpdateUser(id);
-  } 
-  
-
-
- 
 }
 

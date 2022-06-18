@@ -24,7 +24,7 @@ export class PosComponent implements OnInit,AfterContentChecked{
   product:product;
   purchasedProduct:product[]=[];
   cname:string
-
+  Cashier:any
   constructor(private procuctservice:ProductServiceService,
     private receiptservice:ReceiptServiceService,
     private company:AdminService) { 
@@ -64,7 +64,8 @@ export class PosComponent implements OnInit,AfterContentChecked{
 
   ngOnInit(): void {
     this.getCompanyDetails()
-    
+    var user = JSON.parse(sessionStorage.getItem('user'))
+    this.Cashier = user.firstname
     //this.receiptNo = this.getRandomInt();
   //   const $btnPrint = document.querySelector("#btnPrint");
   //   $btnPrint.addEventListener("click", () => {
@@ -77,8 +78,10 @@ export class PosComponent implements OnInit,AfterContentChecked{
   }
   
   fetch(){
+    
+    
     console.log(this.pcode)
-    this.procuctservice.getByProduct(this.pcode,1,"joseph",this.receiptNo ).subscribe(data=>{
+    this.procuctservice.getByProduct(this.pcode,1,this.Cashier,this.receiptNo ).subscribe(data=>{
       this.product = data;
       console.log(this.product)
       if (this.checkIfExist(this.product.producode) == true) {

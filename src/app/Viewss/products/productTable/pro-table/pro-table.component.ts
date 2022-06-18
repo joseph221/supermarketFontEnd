@@ -22,6 +22,7 @@ export class ProTableComponent implements OnInit {
   @Input() isFilterable = false;
   @Input() tableColumns!: TableColumns[];
   @Input() rowActionIcon!: string;
+  @Input() imageColumn:string
   @Input() paginationSizes: number[] = [5, 10, 15];
   @Input() defaultPageSize = this.paginationSizes[1];
 
@@ -41,7 +42,7 @@ export class ProTableComponent implements OnInit {
   ngOnChanges(): void {
     const columnNames = this.tableColumns.map((tableColumn: TableColumns) => tableColumn.name);
     if (this.rowActionIcon) {
-      this.displayedColumns = [this.rowActionIcon,...columnNames]
+      this.displayedColumns = [this.rowActionIcon,this.imageColumn,...columnNames]
     } else {
       this.displayedColumns = columnNames;
     }
@@ -51,7 +52,7 @@ export class ProTableComponent implements OnInit {
   ngOnInit(): void {
     const columnNames = this.tableColumns.map((tableColumn: TableColumns) => tableColumn.name);
     if (this.rowActionIcon) {
-      this.displayedColumns = [this.rowActionIcon,...columnNames]
+      this.displayedColumns = [this.rowActionIcon,this.imageColumn,...columnNames]
     } else {
       this.displayedColumns = columnNames;
     }

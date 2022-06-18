@@ -41,9 +41,9 @@
           <tr *ngFor="let data of configData">
             <th scope="row">{{data.id}}</th>
             <td>{{data.company_name}}</td>
-            <td>{{data.tax_rate|percent}}</td>
-            <td>{{data.tax_rate|percent}}</td>
-            <td>{{data.tax_rate|percent}}</td>
+            <td>{{data.address}}</td>
+            <td>{{data.city}}</td>
+            <td>{{data.phone}}</td>
             <td>{{data.tax_rate|percent}}</td>
             <td><button mat-raised-button (click)="changeConfig()"><mat-icon>edit</mat-icon></button></td>
           </tr>
@@ -80,6 +80,7 @@
    (sort)="sortData($event)"
    [rowActionIcon]="'delete'"
    (rowAction)="removeItem($event)"
+   (rowAction2)="editUser($event)"
    >
      
    </app-table>
@@ -99,8 +100,33 @@
                 <input matInput formControlName="tax_rate" placeholder="0.15" type="number">
             </mat-form-field>
         </div>
-        <button mat-raised-button [disabled]="configForm.invalid" (click)="onSave()">save</button>
     </div>
+    <div class="row">
+      <div class="col-md-6">
+          <mat-form-field class="w-100 example-full-width" appearance="outline">
+              <mat-label>Address</mat-label>
+              <input matInput formControlName="address" placeholder="chwaka">
+          </mat-form-field>
+      </div>
+      <div class="col">
+          <mat-form-field class="w-100 example-full-width" appearance="outline">
+              <mat-label>City</mat-label>
+              <input matInput formControlName="city" placeholder="Zanzibar" type="text">
+          </mat-form-field>
+      </div>
+      
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+        <mat-form-field class="w-100 example-full-width" appearance="outline">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone" placeholder="0717693460">
+        </mat-form-field>
+    </div>
+    <div class="col">
+      <button mat-raised-button [disabled]="configForm.invalid" (click)="onSave()">save</button>
+    </div>
+</div>
   </form>
   
 </ng-template>
