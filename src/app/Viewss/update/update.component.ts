@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserserviceService } from 'src/app/services/userservice.service';
 
@@ -22,22 +23,20 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit(): void {
     const user_id = this.userservice.uid;
-    // this.getById(user_id);
-    // this.userForm = new FormGroup({
-    //   id: new FormControl(null),
-    //   username: new FormControl(null,[Validators.required]),
-    //   password: new FormControl(null,[Validators.required])
-    // });
+    this.getById(user_id);
+    this.userForm = new FormGroup({
+      id: new FormControl(null),
+      username: new FormControl(null,[Validators.required]),
+      password: new FormControl(null,[Validators.required])
+    });
   }
 
   getById(id: number){
     this.userservice.getById(id).subscribe((data:any) =>{
-      console.log("user ",data)
-      Object.keys(data).forEach((key) =>{
-        if(this.userForm.value.hasOwnProperty(key)){
-          this.userForm.get(key).setValue(data[key])
-        }
-      })
+      this.editFormMode={
+        ...this.editFormMode,
+        user:data
+      }
     });
   }
 

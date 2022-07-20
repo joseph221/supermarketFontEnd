@@ -25,6 +25,7 @@ export class PosComponent implements OnInit,AfterContentChecked{
   purchasedProduct:product[]=[];
   cname:string
   Cashier:any
+  prodName:any
   constructor(private procuctservice:ProductServiceService,
     private receiptservice:ReceiptServiceService,
     private company:AdminService) { 
@@ -91,6 +92,7 @@ export class PosComponent implements OnInit,AfterContentChecked{
       }
       this.price = data.price
       this.convertedImage = 'data:image/jpg;base64,' + data.picByte
+      this.prodName = data.itemName
   
     })
   }
@@ -103,14 +105,17 @@ export class PosComponent implements OnInit,AfterContentChecked{
   save(){
     
     if (this.purchasedProduct.length !== 0) { 
-      this.receiptservice.addreceipt(this.purchasedProduct).subscribe(response =>{
+      this.receiptservice.addreceipt(this.purchasedProduct).subscribe((response:any) =>{
         this.clear()
-        this.purchasedProduct=[];
+       
+        console.log(response)
         this.receiptNo = this.getRandomInt();
-        Swal.fire('','Saved','success')
+        Swal.fire('',response.response,'info')
       })
+    }else{
+      Swal.fire('','incomplete records','error')
     }
-    Swal.fire('','incomplete records','error')
+    
   }
   clear(){
     this.pcode = null;
@@ -128,6 +133,7 @@ export class PosComponent implements OnInit,AfterContentChecked{
        a.producode === details.id) , 1)
   }
   print(){
+    this.purchasedProduct=[];
     window.print();
   }
 

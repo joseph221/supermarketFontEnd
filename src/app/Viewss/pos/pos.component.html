@@ -45,7 +45,6 @@
         <!--receipt div--> 
         <div>
             <div id="ticket">
-                <p class="centered"> SALES RECEIPT
                 <p class="centered"> {{cname|uppercase}}
                     <br>Address line 1
                     <br>Receipt No:{{receiptNo}}
@@ -82,11 +81,11 @@
         
         <div class="tryLeft">
             <!--image div-->
-            <div class="card" style="width: 215px;">
-                <div class="hidden-print">
+            <div class="item" *ngIf="convertedImage">
+                <div class="hidden-print" class="item-img">
                     <img class="card-img-top" [src]="convertedImage" alt="Card image">
-                <div class="card-body">
-                    name
+                <div class="item-desc">
+                   <h3>{{prodName}}</h3>
                 </div>
             </div>
             </div>

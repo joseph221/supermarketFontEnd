@@ -1,5 +1,5 @@
 div{
-    padding: 10px;
+    padding: 5px;
 }
 .container{
     display: flex;
@@ -60,15 +60,25 @@ th.price {
     
     
 }
-.card{
-    max-width: 215px;
-    max-height: 215px;
-    object-fit: cover;
+.item{
+    background-color: wheat;
+    border-radius: 18px;
+    -webkit-box-shadow:-1px 5px 15px -6px #292525;
+    box-shadow: -1px 5px 15px -6px #000000;
+
 }
-.card-img-top{
-    max-width: 215px;
-    max-height: 215px;
-    object-fit: cover;
+.item .item-img{
+    max-width: 250px;
+    max-height: 350px;
+   border-radius: 18px;
+}
+.item .item-desc{
+    text-align: center;
+  
+}
+.item-desc h3{
+    font-size: 110%;
+    font-weight: bold;
 }
 .img2{
     max-width: 65px;

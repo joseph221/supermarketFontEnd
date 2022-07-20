@@ -186,6 +186,7 @@ export class UsersComponent implements OnInit,OnChanges {
 
   editUser(id:any){
     console.log(id)
+    this.userservice.uid = id
     const conAndData = {
       data:id,
       width:'50%'

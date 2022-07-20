@@ -27,7 +27,7 @@ export class UserFormComponent implements OnInit ,OnChanges{
     private dialogRef:MatDialogRef<UsersComponent>) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(this.formData.crudeMode === "update"){
+    if(this.formData.crudeMode === "edit"){
       if(this.formData.user != null){
        Object.keys(this.formData.user).forEach((key) =>{
          if(this.userForm.value.hasOwnProperty(key)){
@@ -39,12 +39,13 @@ export class UserFormComponent implements OnInit ,OnChanges{
   }
 
   ngOnInit(): void {
-    console.log('passed from parent =>',this.formData);
+   
     this.formConfiguration();
     this.getRoles()
   }
   formConfiguration(){
     this.userForm = new FormGroup({
+      id: new FormControl(null),
       firstname: new FormControl(null,[Validators.required]),
       lastname: new FormControl(null,[Validators.required]),
       email: new FormControl(null,[Validators.required]),
@@ -55,13 +56,24 @@ export class UserFormComponent implements OnInit ,OnChanges{
   }
   onSave(){
     const values = this.userForm.value
-    console.log(values)
-    this.userservice.add(values).subscribe((response) =>{
-      console.log("Data added",response)
-      Swal.fire('','user saved','success')
-      this.router.navigateByUrl('user')
+    if(this.formData.crudeMode === "create"){
+      this.userservice.add(values).subscribe((response) =>{
+        Swal.fire('','Saved','success')
+        this.router.navigateByUrl('user')
       this.dialogRef.close()
-    })
+      },(error) =>{
+        Swal.fire('','something went wrong on server','error')
+      })
+    }else if(this.formData.crudeMode === "edit"){
+      this.userservice.update(values).subscribe((response) =>{
+        Swal.fire('','update successiful','success')
+        this.router.navigateByUrl('user')
+        this.dialogRef.close()
+      },(error) =>{
+        Swal.fire('','something went wrong on server','error')
+      })
+
+    }
   }
   getRoles(){
     this.role.getRoles().subscribe(res =>{

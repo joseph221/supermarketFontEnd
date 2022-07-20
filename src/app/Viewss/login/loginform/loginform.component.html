@@ -43,7 +43,7 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate class="d-flex-center">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off" novalidate class="d-flex-center">
 
                   <div style="display: flex;">
                     <mat-icon >account_circle</mat-icon>
