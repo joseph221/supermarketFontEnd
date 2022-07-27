@@ -10,6 +10,7 @@ import { UserserviceService } from 'src/app/services/userservice.service';
 })
 export class LoginformComponent implements OnInit {
   loginForm: FormGroup;
+  incorect=false
   constructor(private router:Router,private userservice:UserserviceService) { 
     this.loginConfig()
   }
@@ -39,7 +40,7 @@ export class LoginformComponent implements OnInit {
         this.router.navigate(['main/home'])
         console.log("faild to navigate")
       }else{
-        console.log("no such user")
+        this.incorect = true
         this.router.navigate(['login'])
       }
     })
