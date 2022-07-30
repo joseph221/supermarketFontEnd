@@ -1,0 +1,105 @@
+<h1>YOUR ACCOUNT INFORMATION</h1>
+<hr>
+<div class="d-flex justify-content-end role">
+    <h2>{{role.roleName}}</h2>
+</div>
+
+<hr>
+<mat-card>
+    <mat-card-title></mat-card-title>
+    <mat-card-content>
+        <table class="w-100">
+            <tr>
+                <td>
+                    <legend>Your First Name:</legend>
+                </td>
+                <td>
+                    <legend>{{info.firstname}}</legend>
+                </td>
+            </tr>
+            <pre></pre>
+            <tr>
+                <td>
+                    <legend>Your Last Name:</legend>
+                </td>
+                <td>
+                    <legend>{{info.lastname}}</legend>
+                </td>
+            </tr>
+            <pre></pre>
+            <tr>
+                <td>
+                    <legend>Your User Name:</legend>
+                </td>
+                <td>
+                    <legend> {{info.username}}</legend>
+                </td>
+            </tr>
+            <pre></pre>
+            <tr>
+                <td>
+                    <legend>Your Password:</legend>
+                </td>
+                <td>
+                    <legend>********</legend>
+                </td>
+                <td>
+                    <legend><button class="btn btn" (click)=" show()">change</button></legend>
+                </td>
+            </tr>
+        </table>
+
+    </mat-card-content>
+</mat-card>
+&nbsp;
+<mat-card *ngIf="showChange">
+    <mat-card-content>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <form [formGroup]="changepass">
+                        <label>Current Password</label>
+                        <mat-form-field class="w-100 example-full-width" appearance="outline">
+                            <input matInput type="password" placeholder="current password" formControlName="currentpassword">
+                            <mat-error *ngIf="!changepass.get('currentpassword')?.errors?.required">
+                                Password length must be greater than or equal to 8 and password must contain one or
+                                more uppercase , lowercase , numeric and special characters
+                            </mat-error>
+                            <mat-error
+                                *ngIf="changepass.get('currentpassword')?.invalid && (changepass.get('currentpassword')?.dirty || changepass.get('password')?.touched) && changepass.get('password')?.errors?.required">
+                                Password is required
+                            </mat-error>
+                        </mat-form-field>
+                        <label>New Password</label>
+                        <mat-form-field class="w-100 example-full-width" appearance="outline">
+                            <input matInput type="password" placeholder="new password" formControlName="newpassword">
+                            <mat-error *ngIf="!changepass.get('newpassword')?.errors?.required">
+                                Password length must be greater than or equal to 8 and password must contain one or
+                                more uppercase , lowercase , numeric and special characters
+                            </mat-error>
+                            <mat-error
+                                *ngIf="changepass.get('newpassword')?.invalid && (changepass.get('newpassword')?.dirty || changepass.get('password')?.touched) && changepass.get('password')?.errors?.required">
+                                Password is required
+                            </mat-error>
+                        </mat-form-field>
+                        <label>Confirm Password</label>
+
+                        <div class="form-outline mb-4">
+                            <mat-form-field class="w-100 example-full-width" appearance="outline">
+                                <input matInput type="password" placeholder="confirmpassword" formControlName="confirmpassword">
+                                <mat-error *ngIf="!changepass.get('confirm password')?.errors?.required">
+                                    Password length must be greater than or equal to 8 and password must contain one or
+                                    more uppercase , lowercase , numeric and special characters
+                                </mat-error>
+                                <mat-error
+                                    *ngIf="changepass.get('confirmpassword')?.invalid && (changepass.get('confirmpassword')?.dirty || changepass.get('password')?.touched) && changepass.get('password')?.errors?.required">
+                                    Password is required
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -12,6 +12,7 @@
                 <input matInput formControlName="lastname" placeholder="Your last name">
             </mat-form-field>
         </div>
+       
         <div class="col-md-6">
             <mat-form-field class="w-100 example-full-width" appearance="fill">
                 <mat-label>email</mat-label>
@@ -40,4 +41,5 @@
         </div>
     </div>
 </form>
+<mat-spinner *ngIf="saving"></mat-spinner>
 <button mat-raised-button [disabled]="userForm.invalid" (click)="onSave()">save</button>

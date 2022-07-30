@@ -16,7 +16,7 @@ import Swal from 'sweetalert2';
 export class UserFormComponent implements OnInit ,OnChanges{
   roles:any[]
   userForm!: FormGroup;
-
+  saving=false
   @Input() formData!:{
     crudeMode: String;
     user: any;
@@ -55,15 +55,18 @@ export class UserFormComponent implements OnInit ,OnChanges{
     });
   }
   onSave(){
+    this.saving = true
     const values = this.userForm.value
     if(this.formData.crudeMode === "create"){
       this.userservice.add(values).subscribe((response) =>{
+        this.saving = false
         Swal.fire('','Saved','success')
         this.router.navigateByUrl('user')
       this.dialogRef.close()
       },(error) =>{
         Swal.fire('','something went wrong on server','error')
       })
+      this.saving = false
     }else if(this.formData.crudeMode === "edit"){
       this.userservice.update(values).subscribe((response) =>{
         Swal.fire('','update successiful','success')
@@ -72,7 +75,7 @@ export class UserFormComponent implements OnInit ,OnChanges{
       },(error) =>{
         Swal.fire('','something went wrong on server','error')
       })
-
+      this.saving = false
     }
   }
   getRoles(){
