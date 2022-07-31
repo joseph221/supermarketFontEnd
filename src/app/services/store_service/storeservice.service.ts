@@ -15,7 +15,7 @@ export class StoreserviceService {
   onDataReady() {
     this.router.navigateByUrl("store-print").then(()=>{
       window.print();
-    this.router.navigateByUrl("store")
+    this.router.navigateByUrl("main/store")
  
     })
   }
@@ -24,11 +24,11 @@ export class StoreserviceService {
   }
 
   delete(id:number){
-    return this.http.delete(""+id)
+    return this.http.delete("http://localhost:8081/store/delete/"+id)
   }
 
   getById(id:number){
-    return this.http.get(""+id)
+    return this.http.get("http://localhost:8081/store/"+id)
   }
 
   getBycode(code:string):Observable<Store>{
@@ -37,6 +37,10 @@ export class StoreserviceService {
 
   create(body:Store){
     return this.http.post("http://localhost:8081/store/post",body)
+  }
+
+  update(body:any){
+    return this.http.put("http://localhost:8081/store/put",body)
   }
 
   getStore(){

@@ -20,7 +20,7 @@ export class ProductServiceService {
   onDataReady() {
     this.router.navigateByUrl("product-print").then(()=>{
       window.print();
-    this.router.navigateByUrl("product")
+    this.router.navigateByUrl("main/product")
  
     })
     

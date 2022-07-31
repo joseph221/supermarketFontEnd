@@ -104,6 +104,10 @@ export class StoreComponent implements OnInit {
           crudeMode:"update",
           data:result
         }
+        const dialogRef=this.matDailog.open(StoreFormComponent,this.mode)
+        dialogRef.afterClosed().subscribe(()=>{
+          this.getStore();
+        })
     })
   }
 

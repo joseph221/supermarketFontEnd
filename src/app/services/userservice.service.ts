@@ -45,4 +45,12 @@ export class UserserviceService {
   login(username:String,password:String){
     return this.http.get("http://localhost:8081/user/login/uname/"+username+"/pass/"+password)
   }
+
+  confirm(currentpass:any){
+    return this.http.get("http://localhost:8081/user/confirm/"+currentpass)
+  }
+
+  changePassword(newpass:any,id:any){
+    return this.http.get("http://localhost:8081/user/changepassword/"+newpass+"/id/"+id)
+  }
 }

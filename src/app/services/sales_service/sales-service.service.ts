@@ -16,7 +16,7 @@ export class SalesServiceService {
   onDataReady(){
     this.router.navigateByUrl("sales-print").then(()=>{
       window.print()
-      this.router.navigateByUrl("sales")
+      this.router.navigateByUrl("main/sales")
     })
   }
 
